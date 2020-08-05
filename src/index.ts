@@ -1,3 +1,8 @@
-import sum from "./sum";
+import { LinkedList } from './linkedLists';
 
-console.log(sum(1, 2));
+// Example Linked List usage
+let myLL = new LinkedList(10);
+myLL.append(5);
+myLL.append(6);
+
+console.log(myLL.getList());

@@ -1,7 +1,6 @@
-// import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
-// import { terser } from 'rollup-plugin-terser';
 import babel from '@rollup/plugin-babel';
+import del from 'rollup-plugin-delete';
 
 
 export default {
@@ -11,7 +10,12 @@ export default {
         format: 'cjs',
     },
     plugins: [
+        del({
+            targets: 'build/*'
+        }),
         typescript(), 
-        babel({ babelHelpers: 'bundled' }),
+        babel({ 
+            babelHelpers: 'bundled' 
+        }),
     ],
   };

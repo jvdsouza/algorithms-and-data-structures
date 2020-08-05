@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "build": "npm run test && rollup -c"
+    "build": "npm run test && rollup -c",
+    "rollup": "rollup -c",
+    "start": "node build/index.js",
+    "dev": "ts-node src/index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -21,10 +24,14 @@
     "babel-jest": "^26.2.2",
     "jest": "^26.2.2",
     "rollup": "^2.23.0",
+    "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-terser": "^6.1.0",
     "ts-jest": "^26.1.4",
+    "ts-node": "^8.10.2",
     "tslib": "^2.0.0",
     "typescript": "^3.9.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  }
 }
