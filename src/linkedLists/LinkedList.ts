@@ -1,24 +1,20 @@
+import Node from './Node';
+
 class LinkedList {
     head;
     tail;
     length; 
 
     constructor(value) {
-        this.head = {
-            value: value,
-            next: null
-        }
+        this.head = new Node(value); 
         this.tail = this.head;
         this.length = 1;
     }
     
     append(value) {
-        this.tail.next = {
-            value,
-            next: null
-        }
-
+        this.tail.next = new Node(value);
         this.tail = this.tail.next;
+        this.length++;
     }
 
     getList() {
