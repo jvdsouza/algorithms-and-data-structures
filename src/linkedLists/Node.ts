@@ -1,4 +1,6 @@
-class Node {
+import { INode } from './interfaces';
+
+class Node implements INode {
     value;
     next;
     
