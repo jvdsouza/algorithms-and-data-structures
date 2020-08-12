@@ -11,3 +11,7 @@ myLL.insert(16, 3);
 myLL.insert(0, 43);
 
 console.log(myLL.getListAsArray());
+
+myLL.remove(1);
+
+console.log(myLL.getListAsArray());
