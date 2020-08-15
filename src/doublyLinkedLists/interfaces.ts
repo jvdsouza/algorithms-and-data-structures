@@ -1,15 +1,16 @@
-interface INode {
+interface IDoubleNode {
     value: any;
-    next: INode | null;
+    next: IDoubleNode | null;
+    previous: IDoubleNode | null;
 }
 
-interface ILinkedList {
-    head: INode;
-    tail: INode;
+interface IDoublyLinkedList {
+    head: IDoubleNode;
+    tail: IDoubleNode;
     length: number;
 }
 
 export { 
-    INode, 
-    ILinkedList 
+    IDoubleNode, 
+    IDoublyLinkedList 
 };

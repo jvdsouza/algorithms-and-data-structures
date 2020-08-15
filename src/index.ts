@@ -1,7 +1,8 @@
 import { LinkedList } from './linkedLists';
+import { DoublyLinkedList } from './doublyLinkedLists';
 
 // Example Linked List usage
-let myLL = new LinkedList(10);
+let myLL = new DoublyLinkedList(10);
 myLL.append(5);
 myLL.append(6);
 
@@ -15,3 +16,5 @@ console.log(myLL.getListAsArray());
 myLL.remove(1);
 
 console.log(myLL.getListAsArray());
+console.log(myLL.getList());
+

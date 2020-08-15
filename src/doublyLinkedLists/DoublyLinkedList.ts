@@ -1,7 +1,7 @@
 import Node from './Node';
-import { ILinkedList } from './interfaces';
+import { IDoublyLinkedList } from './interfaces';
 
-class LinkedList implements ILinkedList {
+class DoublyLinkedList implements IDoublyLinkedList {
     head;
     tail;
     length; 
@@ -13,18 +13,21 @@ class LinkedList implements ILinkedList {
     }
     
     append(value) {
-        this.tail.next = new Node(value);
-        this.tail = this.tail.next;
+        const newTail = new Node(value);
+        this.tail.next = newTail;
+        newTail.previous = this.tail;
+        this.tail = newTail;
         this.length++;
-        return this.head;
+        return this.getListAsArray();
     }
 
     prepend(value) {
         const newHead = new Node(value);
         newHead.next = this.head;
+        this.head.previous = newHead;
         this.head = newHead;
         this.length++;
-        return this.head;
+        return this.getListAsArray();
     }
 
     insert(index, value) {
@@ -37,8 +40,7 @@ class LinkedList implements ILinkedList {
         }
 
         if(index === 0) {
-            this.head = new Node(value);
-            this.head.next = currentNode;
+            this.prepend(value);
             return this.getListAsArray();
         }
 
@@ -53,6 +55,7 @@ class LinkedList implements ILinkedList {
 
         let nextNode = currentNode.next;
         currentNode.next = new Node(value);
+        nextNode.previous = currentNode;
 
         currentNode = currentNode.next;
         currentNode.next = nextNode;
@@ -70,6 +73,7 @@ class LinkedList implements ILinkedList {
         if(index === 0) {
             const removedValue = this.head.value;
             this.head = this.head.next;
+            this.head.previous = null;
             return removedValue.value;
         }
 
@@ -83,6 +87,7 @@ class LinkedList implements ILinkedList {
         const removedValue = currentNode.next;
 
         currentNode.next = currentNode.next.next;
+        currentNode.next.previous = currentNode;
 
         return removedValue.value;
     }
@@ -103,4 +108,4 @@ class LinkedList implements ILinkedList {
     }
 }
 
-export default LinkedList;
+export default DoublyLinkedList;

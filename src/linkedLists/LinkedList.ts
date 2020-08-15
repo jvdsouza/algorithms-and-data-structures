@@ -68,7 +68,7 @@ class LinkedList implements ILinkedList {
         } 
 
         if(index === 0) {
-            const removedValue = this.head.value;
+            const removedValue = this.head;
             this.head = this.head.next;
             return removedValue.value;
         }
